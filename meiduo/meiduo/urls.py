@@ -15,22 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
-def log(request):
+# from django.http import HttpResponse
+# def log(request):
+#
+#     import logging
+#     logger=logging.getLogger('djago')
+#     logger.info('登录了')
+#     logger.warning('缓存不足')
+#     logger.error('记录失败')
+#     logger.debug('~~')
+#
+#     return HttpResponse('log')
+#
+from utils.converters import UsernameConverter
+from django.urls import register_converter
 
-    import logging
-    logger=logging.getLogger('djago')
-    logger.info('登录了')
-    logger.warning('缓存不足')
-    logger.error('记录失败')
-    logger.debug('~~')
-
-    return HttpResponse('log')
+register_converter(UsernameConverter,'username')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('log/',log),
+    # path('log/',log),
     path('',include('apps.users.urls'))
 
 ]
