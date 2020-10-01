@@ -22,6 +22,12 @@ class RegisterView(View):
         pass
 
 import json
+
+
+def user(args):
+    pass
+
+
 class RegisterView(View):
     def post(self,request):
         body_bytes = request.body
@@ -49,4 +55,9 @@ class RegisterView(View):
 
         User.objects.create(username=username,password=password,mobile=mobile)
 
-        return JsonResponse({'code':0,'errmsg':'ok'})
+
+
+        from django.contrib.auth import login
+        login(request,user)
+
+        return JsonResponse({'code': 0, 'errmsg': 'ok'})

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'meiduo_shop.apps.MeiduoShopConfig'
     'apps.users',
+    'apps.verifications',
     'corsheaders'
 
 ]
