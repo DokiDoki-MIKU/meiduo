@@ -1,9 +1,9 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 from django.views import View
 # Create your views here.
-class HttpResonse(object):
-    pass
+# class HttpResonse(object):
+#     pass
 
 
 class ImageCodeView(View):
@@ -13,6 +13,6 @@ class ImageCodeView(View):
         from django_redis import get_redis_connection
         redis_cli = get_redis_connection('code')
         redis_cli.setex(uuid,100,text)
-        return HttpResonse(image,content_type='image/jpeg')
-        pass
+        return HttpResponse(image,content_type='image/jpeg')
+
 
