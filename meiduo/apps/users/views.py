@@ -68,7 +68,14 @@ class RegisterView(View):
 
         return JsonResponse({'code': 0, 'errmsg': 'ok'})
 
+class MobileCountView(View):
+    """判断手机号是否重复注册"""
 
-class MobileView(View):
-    def get(self,request):
-        pass
+    def get(self, request, mobile):
+        """
+        :param request: 请求对象
+        :param mobile: 手机号
+        :return: JSON
+        """
+        count = User.objects.filter(mobile=mobile).count()
+        return JsonResponse({'code': 0, 'errmsg': 'OK', 'count': count})
