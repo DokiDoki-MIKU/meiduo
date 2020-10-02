@@ -7,19 +7,25 @@ from apps.users.models import User
 from django.http import JsonResponse
 import re
 
+# class UsernameCountView(View):
+#     def get (self,request,username):
+#         if not re.match('[a-zA-Z0-9_-]{5-20}',username):
+#             return JsonResponse({'code':200,'errmsg':'用户名不满足需求'})
+#
+#         count=User.objects.filter(username=username).count()
+#         return JsonResponse({'code':0,'count':count,'errmsg':'ok'})
+#         pass
 class UsernameCountView(View):
-    def get (self,request,username):
-        if not re.match('[a-zA-Z0-9_-]{5-20}',username):
-            return JsonResponse({'code':200,'errmsg':'用户名不满足需求'})
 
+    def get(self,request,username):
+        # 1.  接收用户名，对这个用户名进行一下判断
+        # if not re.match('[a-zA-Z0-9_-]{5,20}',username):
+        #     return JsonResponse({'code':200,'errmsg':'用户名不满足需求'})
+        # 2.  根据用户名查询数据库
         count=User.objects.filter(username=username).count()
+        # 3.  返回响应
         return JsonResponse({'code':0,'count':count,'errmsg':'ok'})
-        pass
 
-class RegisterView(View):
-    def post(self,request):
-
-        pass
 
 import json
 
@@ -61,3 +67,8 @@ class RegisterView(View):
         login(request,user)
 
         return JsonResponse({'code': 0, 'errmsg': 'ok'})
+
+
+class MobileView(View):
+    def get(self,request):
+        pass
