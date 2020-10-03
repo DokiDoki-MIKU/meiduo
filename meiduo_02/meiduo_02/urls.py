@@ -27,6 +27,15 @@ def log(request):
     logger.debug('~~~~~~')
 
     return HttpResponse('log')
+from utils.converters import UsernameConverter
+from django.urls import register_converter
+
+register_converter(UsernameConverter,'username')
+
+
+
+
+
 
 
 urlpatterns = [
