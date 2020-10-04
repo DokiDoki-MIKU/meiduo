@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
-
+from utils.converters import UsernameConverter
+from django.urls import register_converter
 def log(request):
     import logging
 
@@ -31,18 +32,13 @@ from utils.converters import UsernameConverter
 from django.urls import register_converter
 
 register_converter(UsernameConverter,'username')
-
-
-
-
-
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('apps.users.urls')),
+    path('',include('apps.verifications.urls')),
 
-    path('',include('apps.users.urls'))
 ]
+
 
 
 #test
