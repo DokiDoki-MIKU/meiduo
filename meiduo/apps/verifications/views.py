@@ -45,9 +45,12 @@ class SmsCodeView(View):
         from random import randint
         sms_code='%06d'%randint(0,999999)
         # sms_code=77777
+        pipeline=redis_cli.pipeline()
 
         redis_cli.setex(mobile,300,sms_code)
         redis_cli.setex('send_flag_%s'%mobile,60,1)
+
+        pipeline.execute()
 
         from libs.yuntongxun.sms import CCP
         CCP().send_template_sms(mobile,[sms_code,5],1)
