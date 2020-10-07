@@ -79,3 +79,29 @@ class MobileCountView(View):
         """
         count = User.objects.filter(mobile=mobile).count()
         return JsonResponse({'code': 0, 'errmsg': 'OK', 'count': count})
+
+class LoginView(VIew):
+    def post(self,request):
+        data=json.loads(request.body.decode())
+        username=data.get('username')
+        password=data.get('password')
+        remembered=data.get('remembered')
+
+        if not all([username,password]):
+            return JsonResponse({'code':400,'errmsg':'参数错误'})
+
+        from django.contrib.auth import authenticate
+        user=authenticate(username=username,password=password)
+        if user is None:
+            return JsonResponse({'code':400,'errmsg':'账号或密码错误'})
+        from django.contrib.auth import login
+        login(request,user)
+        if remembered is not None:
+            request.session.set_expiry(None)
+
+
+        else:
+            request.session.set_expiry(0)
+
+
+        return JsonResponse({'code':0,'errmsg':'ok'})
