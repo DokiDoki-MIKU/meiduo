@@ -37,10 +37,18 @@ class SmsCodeView(View):
         if redis_image_code.decode().lower() != image_code.lower():
             return JsonResponse({'code':400,'errmsg':'验证码错误'})
 
+        send_flag = redis_cli.get('send_flag_%s'%mobile)
+        if send_flag:
+            return JsonResponse({'code': 400, 'errmsg': '发送短信过于频繁'})
+
+
         from random import randint
         sms_code='%06d'%randint(0,999999)
         # sms_code=77777
+
         redis_cli.setex(mobile,300,sms_code)
+        redis_cli.setex('send_flag_%s'%mobile,60,1)
+
         from libs.yuntongxun.sms import CCP
         CCP().send_template_sms(mobile,[sms_code,5],1)
         return JsonResponse({'code':0,'errmsg':'ok'})
