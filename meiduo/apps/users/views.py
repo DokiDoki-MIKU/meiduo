@@ -80,7 +80,7 @@ class MobileCountView(View):
         count = User.objects.filter(mobile=mobile).count()
         return JsonResponse({'code': 0, 'errmsg': 'OK', 'count': count})
 
-class LoginView(VIew):
+class LoginView(View):
     def post(self,request):
         data=json.loads(request.body.decode())
         username=data.get('username')
@@ -89,6 +89,14 @@ class LoginView(VIew):
 
         if not all([username,password]):
             return JsonResponse({'code':400,'errmsg':'参数错误'})
+
+
+        import re
+        if re.match('^1[3-9]\d{9}$',username):
+            User.USERNAME_FIELD = 'mobile'
+        else:
+            User.USERNAME_FIELD = 'username'
+
 
         from django.contrib.auth import authenticate
         user=authenticate(username=username,password=password)
