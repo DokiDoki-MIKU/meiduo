@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     # 'meiduo_shop.apps.MeiduoShopConfig'
     'apps.users',
     'apps.verifications',
-    'corsheaders'
+    'corsheaders',
+    'apps.oauth'
 
 ]
 
