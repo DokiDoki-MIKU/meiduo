@@ -124,3 +124,10 @@ class LogoutView(View):
         response.delete_cookie('username')
 
         return response
+
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+class CenterView(LoginRequiredMixin,View):
+    def get(selfself,request):
+        return JsonResponse({'code':0,'errmsg':'ok'})
+
