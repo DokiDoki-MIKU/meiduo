@@ -104,12 +104,14 @@ class LoginView(View):
             return JsonResponse({'code':400,'errmsg':'账号或密码错误'})
         from django.contrib.auth import login
         login(request,user)
+
         if remembered is not None:
             request.session.set_expiry(None)
-
-
         else:
             request.session.set_expiry(0)
 
 
-        return JsonResponse({'code':0,'errmsg':'ok'})
+        response= JsonResponse({'code':0,'errmsg':'ok'})
+        response.set_cookie('username',username)
+
+        return response
