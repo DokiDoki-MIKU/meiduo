@@ -34,7 +34,12 @@ class OauthQQView(View):
         try:
             qquser=OAuthQQUser.objects.get(openid=openid)
         except OAuthQQUser.DoesNotExist:
-            response = JsonResponse({'code':400,'access_token':openid})
+            from apps.oauth.utils import generic_openid
+            access_token=generic_openid(openid)
+
+
+
+            response = JsonResponse({'code':400,'access_token':access_token})
             return response
 
         else:
@@ -48,6 +53,11 @@ from django.contrib.auth import login
 from apps.users.models import User
 import json
 import re
+
+
+
+
+
 class OautQQView(View):
     def get(self,request):...
 
@@ -57,7 +67,15 @@ class OautQQView(View):
         mobile=data.get('mobile')
         password=data.get('password')
         sms_code=data.get('sms_code')
-        openid=data.get('access_token')
+        access_token=data.get('access_token')
+
+        from apps.oauth.utils import check_access_token
+        openid=check_access_token(access_token)
+        if openid is None:
+            return JsonResponse({'coed':400,'errmsg':'参数缺失'})
+
+
+
         if not all([mobile, password, sms_code]):
             return JsonResponse({'code': 400,'errmsg': '缺少必传参数'})
 
