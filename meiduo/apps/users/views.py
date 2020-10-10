@@ -205,5 +205,13 @@ class LogoutView(View):
 from django.contrib.auth.mixins import LoginRequiredMixin
 class CenterView(LoginRequiredMixin,View):
     def get(selfself,request):
-        return JsonResponse({'code':0,'errmsg':'ok'})
+        info_data = {
+            'username':request.user.username,
+            'email':request.user.email,
+            'mobile':request.user.mobile,
+            'email_active':request.user.email_active,
+
+
+        }
+        return JsonResponse({'code':0,'errmsg':'ok','info_data':info_data})
 
