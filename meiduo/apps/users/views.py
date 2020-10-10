@@ -3,6 +3,8 @@ from django.shortcuts import render
 
 # Create your views here
 from django.views import View
+from django_redis import get_redis_connection
+
 from apps.users.models import User
 from django.http import JsonResponse
 import re
@@ -46,20 +48,29 @@ class RegisterView(View):
         mobile = body_dict.get('mobile')
         allow = body_dict.get('allow')
 
+        sms_code_client = body_dict.get('sms_code')
+        redis_conn = get_redis_connection('code')
+        sms_code_server = redis_conn.get(mobile)
+        if not sms_code_server:
+            return JsonResponse({'code': 400, 'errmsg': '短信验证码失效'})
+        # 对比用户输入的和服务端存储的短信验证码是否一致
+        if sms_code_client != sms_code_server.decode():
+            return JsonResponse({'code': 400, 'errmsg': '短信验证码有误'})
+
         if not all([username,password,password2,mobile,allow]):
             return JsonResponse({'code':400,'errmsg':'参数不全'})
-        if not re.match('[a-zA-Z_-]{5,20}'):
+        if not re.match('[0-9A-Za-z]{8,20}',password):
             return JsonResponse({'code': 400, 'errmsg': '参数不全'})
-        if not re.match('[0-9A-Za-z]{8,20}',password ):
+        if not re.match('[0-9A-Za-z]{8,20}',password2 ):
             return JsonResponse({'code': 400, 'errmsg': '参数不全'})
         if password != password2:
-            return JsonResponse({'code': 400, 'errmsg': '参数不全'})
+            return JsonResponse({'code': 400, 'errmsg': '两次密码不一致'})
         if not re.match('1[3-9]\d{9}',mobile):
             return JsonResponse({'code': 400, 'errmsg': '参数不全'})
         if allow != True:
             return JsonResponse({'code': 400, 'errmsg': '参数不全'})
 
-        User.objects.create(username=username,password=password,mobile=mobile)
+        user=User.objects.create_user(username=username,password=password,mobile=mobile)
 
 
 
