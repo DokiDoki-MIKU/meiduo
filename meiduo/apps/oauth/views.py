@@ -85,12 +85,16 @@ class OautQQView(View):
         response=JsonResponse({'code':0,'errmsg':'ok'})
         response.set_cookie('username',user.username)
         return response
+from meiduo import settings
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+s=Serializer(secret_key=settings.SECRET_KEY,expires_in=3600)
+token=s.dumps({'openid':'123456789'})
 
+#b'eyJhbGciOiJIUzUxMiIsImlhdCI6MTYwMjMzMTg4MiwiZXhwIjoxNjAyMzM1NDgyfQ.eyJvcGVuaWQiOiIxMjM0NTY3ODkifQ.k2ddFpUzXtkINL1tgfuIzJKcEyPjkz-DDlTyXZRqIliH9T0AinQ7iwGX9YVeVz_c3g1D37cYa0B2l0dfOwMMYA'
 
-
-
-
-
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+s=Serializer(secret_key=settings.SECRET_KEY,expires_in=3600)
+s.loads(token)
 
 
 
