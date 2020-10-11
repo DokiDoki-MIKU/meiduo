@@ -277,7 +277,11 @@ class EmailView(LoginRequiredJSONMixin,View):
         from_email='美多商城<ciyuanjiaoyisuo@163.com>'
         # recipient_list, 收件人列表
         recipient_list = ['ciyuanjiaoyisuo@163.com','2310105913@qq.com']
-        html_message='点击按钮进行激活 <a href=http://www.itcast.cn>激活</a>'
+        from apps.users.utils import generic_email_verify_token
+        token=generic_email_verify_token(request.user.id)
+
+
+        html_message='点击按钮进行激活 <a href=http://www.itcast.cn/?token=%s>激活</a>'%token
         send_mail(subject=subject,
                   message=message,
                   from_email=from_email,
