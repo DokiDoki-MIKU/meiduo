@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views import View
 from django_redis import get_redis_connection
 
+from apps.oauth.views import token
 from apps.users.models import User
 from django.http import JsonResponse
 import re
@@ -271,17 +272,17 @@ class EmailView(LoginRequiredJSONMixin,View):
         # subject,      主题
         subject='美多商城激活邮件'
         # message,      邮件内容
-        message="点击按钮激活"
+        message=""
         # from_email,   发件人
         from_email='美多商城<ciyuanjiaoyisuo@163.com>'
         # recipient_list, 收件人列表
         recipient_list = ['ciyuanjiaoyisuo@163.com','2310105913@qq.com']
-
+        html_message='点击按钮进行激活 <a href=http://www.itcast.cn>激活</a>'
         send_mail(subject=subject,
                   message=message,
                   from_email=from_email,
                   recipient_list=recipient_list,
-                  # html_message=html_message
+                  html_message=html_message
                   )
 
         # 5. 返回响应
