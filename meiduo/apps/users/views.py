@@ -47,8 +47,8 @@ class RegisterView(View):
         password2 = body_dict.get('password2')
         mobile = body_dict.get('mobile')
         allow = body_dict.get('allow')
-
         sms_code_client = body_dict.get('sms_code')
+
         redis_conn = get_redis_connection('code')
         sms_code_server = redis_conn.get(mobile)
         if not sms_code_server:
