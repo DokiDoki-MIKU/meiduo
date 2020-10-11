@@ -1,5 +1,5 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'meiduo_mall.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'meiduo.settings')
 
 # 1. 创建celery实例
 from celery import Celery
