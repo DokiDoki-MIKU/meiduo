@@ -214,4 +214,36 @@ class CenterView(LoginRequiredMixin,View):
 
         }
         return JsonResponse({'code':0,'errmsg':'ok','info_data':info_data})
+#授权码VMPXPUFURZOZQZAQ
+class EmailView(LoginRequiredMixin,View):
 
+    def put(self,request):
+        data=json.loads(request.body.decode())
+        email=data.get('email')
+
+        if not email:
+            return JsonResponse({'code': 400,'errmsg': '缺少email参数'})
+        if not re.match(r'^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
+            return JsonResponse({'code': 400,'errmsg': '请输入正确的邮箱'})
+
+        user=request.user
+        user.email=email
+        user.save()
+        from django.core.mail import send_mail
+        subject='美多商城激活邮件'
+
+        message=''
+
+        from_email='美多商城<ciyuanjiaoyisuo@163.com>'
+
+        recipient_list=['2310105913@qq.com','m15203321882@163.com']
+
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=from_email,
+            recipient_list=recipient_list
+        )
+
+
+        return JsonResponse({'code':0,'errmsg':'ok'})
