@@ -212,10 +212,12 @@ CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
 # 我们申请的 客户端id
 QQ_CLIENT_ID = '101474184'
 # 我们申请的 客户端秘钥
+# QQ_CLIENT_SECRET = 'c6ce949e04e12ecc909ae6a8b09b637c'
+# # 我们申请时添加的: 登录成功后回调的路径
+# QQ_REDIRECT_URI = 'http://www.meiduo.site:8080/oauth_callback.html'
 QQ_CLIENT_SECRET = 'c6ce949e04e12ecc909ae6a8b09b637c'
 # 我们申请时添加的: 登录成功后回调的路径
 QQ_REDIRECT_URI = 'http://www.meiduo.site:8080/oauth_callback.html'
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
@@ -223,6 +225,6 @@ EMAIL_PORT = 25
 #发送邮件的邮箱
 EMAIL_HOST_USER = 'ciyuanjiaoyisuo@163.com'
 #在邮箱中设置的客户端授权密码
-EMAIL_HOST_PASSWORD = 'VMPXPUFURZOZQZAQ'
+EMAIL_HOST_PASSWORD = 'JJTABXPVVVEYXJIL'
 #收件人看到的发件人
 EMAIL_FROM = '美多商城<ciyuanjiaoyisuo@163.com>'

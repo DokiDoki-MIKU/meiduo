@@ -17,6 +17,9 @@ import re
 #         count=User.objects.filter(username=username).count()
 #         return JsonResponse({'code':0,'count':count,'errmsg':'ok'})
 #         pass
+from utils.views import LoginRequiredJSONMixin
+
+
 class UsernameCountView(View):
 
     def get(self,request,username):
@@ -215,35 +218,71 @@ class CenterView(LoginRequiredMixin,View):
         }
         return JsonResponse({'code':0,'errmsg':'ok','info_data':info_data})
 #授权码VMPXPUFURZOZQZAQ
-class EmailView(LoginRequiredMixin,View):
+# class EmailView(LoginRequiredMixin,View):
+#
+#     def put(self,request):
+#         data=json.loads(request.body.decode())
+#         email=data.get('email')
+#
+
+#         from django.core.mail import send_mail
+#         subject='美多商城激活邮件'
+#
+#         message='abc'
+#
+#         from_email='美多商城<ciyuanjiaoyisuo@163.com>'
+#
+#         recipient_list=['2310105913@qq.com','m15203321882@163.com']
+#
+#         send_mail(
+#             subject=subject,
+#             message=message,
+#             from_email=from_email,
+#             recipient_list=recipient_list
+#         )
+#
+#
+#         return JsonResponse({'code':0,'errmsg':'ok'})
+class EmailView(LoginRequiredJSONMixin,View):
 
     def put(self,request):
+        # 1. 接收请求
+        #ｐｕｔ post －－－　ｂｏdy
         data=json.loads(request.body.decode())
+        # 2. 获取数据
         email=data.get('email')
-
+        # 验证数据
+        # 正则　
         if not email:
-            return JsonResponse({'code': 400,'errmsg': '缺少email参数'})
+            return JsonResponse({'code': 400, 'errmsg': '缺少email参数'})
         if not re.match(r'^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
-            return JsonResponse({'code': 400,'errmsg': '请输入正确的邮箱'})
-
+            return JsonResponse({'code': 400, 'errmsg': '请输入正确的邮箱'})
+        #
+        # 3. 保存邮箱地址
         user=request.user
+        # user / request.user 就是　登录用户的　实例对象
+        # user --> User
         user.email=email
         user.save()
+        # 4. 发送一封激活邮件
+        # 一会单独讲发送邮件
         from django.core.mail import send_mail
+        # subject, message, from_email, recipient_list,
+        # subject,      主题
         subject='美多商城激活邮件'
-
-        message=''
-
+        # message,      邮件内容
+        message="点击按钮激活"
+        # from_email,   发件人
         from_email='美多商城<ciyuanjiaoyisuo@163.com>'
+        # recipient_list, 收件人列表
+        recipient_list = ['ciyuanjiaoyisuo@163.com','2310105913@qq.com']
 
-        recipient_list=['2310105913@qq.com','m15203321882@163.com']
+        send_mail(subject=subject,
+                  message=message,
+                  from_email=from_email,
+                  recipient_list=recipient_list,
+                  # html_message=html_message
+                  )
 
-        send_mail(
-            subject=subject,
-            message=message,
-            from_email=from_email,
-            recipient_list=recipient_list
-        )
-
-
+        # 5. 返回响应
         return JsonResponse({'code':0,'errmsg':'ok'})
