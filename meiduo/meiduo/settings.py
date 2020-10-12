@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.verifications',
     'corsheaders',
-    'apps.oauth'
+    'apps.oauth',
+    'apps.areas'
 
 ]
 
@@ -198,6 +199,7 @@ LOGGING = {
 }
 #
 AUTH_USER_MODEL = 'users.User'
+# AUTH_USER_MODEL = 'apps.areas.OAuthQQUser'
 
 # CORS
 CORS_ORIGIN_WHITELIST = (
