@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b37cc1b9-35f3-4579-b3a8-fe88ae424fc1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="283" column="83" selection-start-line="283" selection-start-column="83" selection-end-line="283" selection-end-column="83" />
+            <state relative-caret-position="166">
+              <caret line="309" column="26" lean-forward="true" selection-start-line="309" selection-start-column="26" selection-end-line="309" selection-end-column="26" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
                 <element signature="e#6873#6893#0" />
@@ -32,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/users/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="-230">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
               </folding>
@@ -44,20 +54,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/celery_tasks/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="132">
+              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/meiduo/settings.py">
+        <entry file="file://$PROJECT_DIR$/celery_tasks/email/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="227" column="39" selection-start-line="227" selection-start-column="39" selection-end-line="227" selection-end-column="39" />
-              <folding>
-                <element signature="e#5792#5805#0" />
-              </folding>
+            <state relative-caret-position="22">
+              <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -96,10 +103,10 @@
         <option value="$PROJECT_DIR$/apps/oauth/urls.py" />
         <option value="$PROJECT_DIR$/apps/oauth/views.py" />
         <option value="$PROJECT_DIR$/apps/users/utils.py" />
-        <option value="$PROJECT_DIR$/celery_tasks/main.py" />
         <option value="$PROJECT_DIR$/celery_tasks/email/tasks.py" />
-        <option value="$PROJECT_DIR$/apps/users/urls.py" />
         <option value="$PROJECT_DIR$/meiduo/settings.py" />
+        <option value="$PROJECT_DIR$/celery_tasks/main.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls.py" />
         <option value="$PROJECT_DIR$/apps/users/views.py" />
       </list>
     </option>
@@ -147,6 +154,12 @@
               <item name="meiduo" type="462c0819:PsiDirectoryNode" />
               <item name="celery_tasks" type="462c0819:PsiDirectoryNode" />
               <item name="email" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meiduo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meiduo" type="462c0819:PsiDirectoryNode" />
+              <item name="celery_tasks" type="462c0819:PsiDirectoryNode" />
+              <item name="sms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,7 +356,7 @@
       <workItem from="1601618369972" duration="9318000" />
       <workItem from="1601692562871" duration="19000" />
       <workItem from="1601785281931" duration="14216000" />
-      <workItem from="1602130384696" duration="56075000" />
+      <workItem from="1602130384696" duration="60914000" />
     </task>
     <task id="LOCAL-00001" summary="防止频繁注册">
       <created>1602066123868</created>
@@ -485,7 +498,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602417480065</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="查询字符串">
+      <created>1602418449001</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1602418449001</updated>
+    </task>
+    <task id="LOCAL-00022" summary="异步发送">
+      <created>1602420754838</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1602420754838</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -497,7 +524,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120740000" />
+    <option name="totallyTimeSpent" value="125579000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1207" height="770" extended-state="6" />
@@ -508,18 +535,18 @@
       <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.17692974" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32715008" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.304" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.304" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3296" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3296" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.4248366" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32941177" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32843137" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.424" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.328" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.328" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -550,7 +577,9 @@
     <MESSAGE value="修复绑定ＢＵＧ" />
     <MESSAGE value="添加邮箱" />
     <MESSAGE value="发送激活邮件" />
-    <option name="LAST_COMMIT_MESSAGE" value="发送激活邮件" />
+    <MESSAGE value="查询字符串" />
+    <MESSAGE value="异步发送" />
+    <option name="LAST_COMMIT_MESSAGE" value="异步发送" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -567,7 +596,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
-          <line>292</line>
+          <line>304</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
@@ -793,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.6/site-packages/django/contrib/auth/mixins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.6/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -832,33 +854,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/celery_tasks/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.6/site-packages/django/views/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/celery_tasks/sms/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/celery_tasks/email/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -897,23 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/celery_tasks/email/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/celery_tasks/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/oauth/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-227">
@@ -924,10 +902,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.6/site-packages/django/contrib/auth/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.6/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_tasks/sms/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_tasks/email/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/celery_tasks/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="-230">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
           </folding>
@@ -936,8 +959,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="283" column="83" selection-start-line="283" selection-start-column="83" selection-end-line="283" selection-end-column="83" />
+        <state relative-caret-position="166">
+          <caret line="309" column="26" lean-forward="true" selection-start-line="309" selection-start-column="26" selection-end-line="309" selection-end-column="26" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
             <element signature="e#6873#6893#0" />

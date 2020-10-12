@@ -303,3 +303,32 @@ class EmailView(LoginRequiredJSONMixin,View):
 
         # 5. 返回响应
         return JsonResponse({'code':0,'errmsg':'ok'})
+
+
+class EmailVerifyView(View):
+    def put(self,request):
+        params=request.Get
+        token=params.get('token')
+
+        if  token is None:
+            return JsonResponse({'code':400,'errmsg':'参数缺失'})
+        from apps.users.utils import check_verify_token
+        user_id=check_verify_token(token)
+        if user_id is None:
+            return JsonResponse({'code':400,'errmsg':'参数错误'})
+
+        user=User.objects.get(id=user_id)
+        user.email_active=True
+        user.save()
+        return JsonResponse({'code':0,'errmsg':'ok'})
+
+
+
+
+
+
+
+
+
+
+
