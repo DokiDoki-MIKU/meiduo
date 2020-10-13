@@ -1,3 +1,4 @@
+
 from django.middleware import http
 from django.shortcuts import render
 
@@ -402,11 +403,14 @@ class AddressView(LoginRequiredJSONMixin,View):
         # 3.返回响应
         return JsonResponse({'code':0,'errmsg':'ok','addresses':address_list})
 
+class DefaultAddressView(LoginRequiredJSONMixin, View):
+    def put(self,request,address_id):
 
+        address = Address.objects.get(id=address_id)
 
-
-
-
+        request.user.default_address = address
+        request.user.save()
+        return JsonResponse({'code': 0, 'errmsg': '设置成功'})
 
 
 
