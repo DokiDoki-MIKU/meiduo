@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+from fdfs_client.client import Fdfs_client
+client=Fdfs_client('utils/fastdfs/client.conf')
+
+client.upload_by_filename('/home/ubuntu/Desktop/01.jpg')
+

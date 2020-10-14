@@ -37,13 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'meiduo_shop.apps.MeiduoShopConfig'
     'apps.users',
     'apps.verifications',
     'corsheaders',
     'apps.oauth',
-    'apps.areas'
-    'apps.goods'
+    'apps.areas',
+    'apps.goods',
+    'apps.contents'
 
 ]
 
