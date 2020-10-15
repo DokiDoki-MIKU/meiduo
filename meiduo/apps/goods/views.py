@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from fdfs_client.client import Fdfs_client
 
-
+from apps.goods.models import GoodsCategory
 from utils.goods import get_categories
 
 client=Fdfs_client('utils/fastdfs/client.conf')
@@ -37,3 +37,41 @@ class IndexView(View):
         }
         # 模板使用比较少，以后大家到公司 自然就会了
         return render(request,'index.html',context)
+
+from apps.goods.models import SKU
+from django.http import JsonResponse
+class ListView(View):
+    def get(self,request,category_id):
+        ordering=request.GET.get('ordering')
+        page_size=request.GET.get('page_size')
+        page=request.GET.get('page')
+        try:
+            category=GoodsCategory.objects.get(id=category_id)
+        except GoodsCategory .DoesNotExist:
+            return JsonResponse({'code':400,'errmsg':'参数缺失'})
+
+        breadcrumb=get_categories(category)
+        skus=SKU.objects.filter(category=category,is_launched=True).order_by(ordering)
+        from django.core.paginator import Paginator
+        paginator=Paginator(skus,per_page=page_size)
+        page_skus=paginator.page(page)
+        sku_list=[]
+
+        for sku in page_skus.object_list:
+            sku_list.append({
+                'id':sku.id,
+                'default_image_url':sku.default_image.url,
+                'name':sku.name,
+                'price':sku.price
+            })
+
+        total_num= paginator.num_pages
+
+        return JsonResponse({'code':0,'errmsg':'OK','list':sku_list,'count':total_num,'breadcrumb':breadcrumb})
+
+
+
+
+
+
+
