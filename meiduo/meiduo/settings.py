@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'apps.oauth',
     'apps.areas',
     'apps.goods',
-    'apps.contents'
+    'apps.contents',
+
 
 ]
 
@@ -231,3 +232,7 @@ EMAIL_HOST_USER = 'ciyuanjiaoyisuo@163.com'
 EMAIL_HOST_PASSWORD = 'JJTABXPVVVEYXJIL'
 #收件人看到的发件人
 EMAIL_FROM = '美多商城<ciyuanjiaoyisuo@163.com>'
+
+
+# DEFAULT_FILE_STORAGE = 'utiles.fdstdfs.storage.MyStorage'
+DEFAULT_FILE_STORAGE = 'utils.fastdfs.storage.MyStorage'
