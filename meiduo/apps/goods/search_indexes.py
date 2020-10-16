@@ -11,3 +11,4 @@ class SKUIndex(indexes.SearchIndex,indexes.Indexable):
 
         return self.get_model().objects.all()
         # return SKU.objects.all()
+

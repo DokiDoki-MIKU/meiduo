@@ -70,6 +70,28 @@ class ListView(View):
         return JsonResponse({'code':0,'errmsg':'OK','list':sku_list,'count':total_num,'breadcrumb':breadcrumb})
 
 
+from haystack.views import SearchView
+from django.http import JsonResponse
+
+
+class SKUSearchchView(SearchView):
+    def create_response(self):
+        context = self.get_context()
+
+        sku_list=[]
+        for item in context['page'].object_list:
+            sku_list.append({
+                'id':item.object.id,
+                'name':item.object.name,
+                'price': item.object.price,
+                'default_image_url': item.object.default_image.url,
+                'searchkey': context.get('query'),
+                'page_size': context['page'].paginator.num_pages,
+                'count': context['page'].paginator.count
+            })
+
+        return JsonResponse(sku_list,safe=False)
+
 
 
 
