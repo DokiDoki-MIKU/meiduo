@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.areas',
     'apps.goods',
     'apps.contents',
+    'haystack',
 
 
 ]
@@ -236,3 +237,11 @@ EMAIL_FROM = '美多商城<ciyuanjiaoyisuo@163.com>'
 
 # DEFAULT_FILE_STORAGE = 'utiles.fdstdfs.storage.MyStorage'
 DEFAULT_FILE_STORAGE = 'utils.fastdfs.storage.MyStorage'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://192.168.13.178:9200/', # Elasticsearch服务器ip地址，端口号固定为9200
+        'INDEX_NAME': 'meiduo_mall', # Elasticsearch建立的索引库的名称
+    },
+}
