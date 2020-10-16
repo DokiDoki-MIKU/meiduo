@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.goods',
     'apps.contents',
     'haystack',
+    'django_crontab',
 
 
 ]
@@ -247,3 +248,8 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
+
+CRONJOBS = [
+    ('*/1 * * * *','apps.contents.crons.generic_meiduo_index','>> ' + os.path.join(BASE_DIR, 'logs/crontab.log'))
+
+]
