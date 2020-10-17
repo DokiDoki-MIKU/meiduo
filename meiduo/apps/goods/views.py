@@ -109,3 +109,6 @@ class DetailView(View):
 
         return render(request,'detail.html',context)
 
+
+
+
