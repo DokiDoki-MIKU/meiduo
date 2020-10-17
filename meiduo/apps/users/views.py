@@ -474,5 +474,17 @@ class UserHistoryView(LoginRequiredMixin,View):
         return JsonResponse({'code':0,'errmsg':'ok'})
 
 
+    def get(self,request):
+        redis_cli=get_redis_connection('history')
+        ids=redis_cli.lrange('history_%s'%request.user.id,0,4)
+        history_list=[]
+        for sku_id in ids:
+            sku=SKU.objects.get(id=sku_id)
+            history_list.append({
+                'id':sku.id,
+                'name':sku.name,
+                'default_image_url': sku.default_image.url,
+                'price': sku.price
+            })
 
-
+        return JsonResponse({'code': 0, 'errmsg': 'OK', 'skus': history_list})

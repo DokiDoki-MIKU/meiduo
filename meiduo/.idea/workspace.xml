@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b37cc1b9-35f3-4579-b3a8-fe88ae424fc1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,13 +17,23 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/goods/views.py">
+        <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="135" column="4" selection-start-line="135" selection-start-column="4" selection-end-line="135" selection-end-column="4" />
+            <state relative-caret-position="190">
+              <caret line="485" column="16" selection-start-line="485" selection-start-column="16" selection-end-line="485" selection-end-column="16" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#1#35#0" expanded="true" />
+                <element signature="e#14520#15034#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/meiduo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -68,7 +77,6 @@
         <option value="$PROJECT_DIR$/apps/areas/models.py" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
         <option value="$PROJECT_DIR$/apps/areas/views.py" />
-        <option value="$PROJECT_DIR$/apps/users/views.py" />
         <option value="$PROJECT_DIR$/apps/users/urls.py" />
         <option value="$PROJECT_DIR$/apps/contents/models.py" />
         <option value="$PROJECT_DIR$/script/import_goods_data.sh" />
@@ -79,11 +87,12 @@
         <option value="$PROJECT_DIR$/templates/search/indexes/goods/sku_text.txt" />
         <option value="$PROJECT_DIR$/apps/goods/search_indexes.py" />
         <option value="$PROJECT_DIR$/apps/contents/crons.py" />
-        <option value="$PROJECT_DIR$/meiduo/settings.py" />
         <option value="$PROJECT_DIR$/apps/contents/detail.py" />
         <option value="$PROJECT_DIR$/apps/goods/models.py" />
         <option value="$PROJECT_DIR$/apps/goods/urls.py" />
         <option value="$PROJECT_DIR$/apps/goods/views.py" />
+        <option value="$PROJECT_DIR$/meiduo/settings.py" />
+        <option value="$PROJECT_DIR$/apps/users/views.py" />
       </list>
     </option>
   </component>
@@ -118,6 +127,12 @@
               <item name="meiduo" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="meiduo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="meiduo" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="meiduo" type="b2602c69:ProjectViewProjectNode" />
@@ -327,7 +342,7 @@
       <workItem from="1601692562871" duration="19000" />
       <workItem from="1601785281931" duration="14216000" />
       <workItem from="1602130384696" duration="100117000" />
-      <workItem from="1602677597053" duration="35824000" />
+      <workItem from="1602677597053" duration="39105000" />
     </task>
     <task id="LOCAL-00001" summary="防止频繁注册">
       <created>1602066123868</created>
@@ -651,7 +666,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602934935155</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="商品分类统计实现">
+      <created>1602935789544</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1602935789544</updated>
+    </task>
+    <task id="LOCAL-00048" summary="浏览记录的实现">
+      <created>1602937634414</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1602937634414</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -663,7 +692,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200606000" />
+    <option name="totallyTimeSpent" value="203887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1380" height="800" extended-state="6" />
@@ -671,10 +700,10 @@
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.13951735" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.13951735" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32715008" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38015267" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38015267" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3688394" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -683,7 +712,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32909605" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40152672" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.40152672" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32761312" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32768363" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -697,8 +726,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="查询字符串" />
-    <MESSAGE value="异步发送" />
     <MESSAGE value="邮件激活" />
     <MESSAGE value="areas子应用" />
     <MESSAGE value="导入数据" />
@@ -722,7 +749,9 @@
     <MESSAGE value="定时任务" />
     <MESSAGE value="商品详情静态化" />
     <MESSAGE value="迁移问题解决" />
-    <option name="LAST_COMMIT_MESSAGE" value="迁移问题解决" />
+    <MESSAGE value="商品分类统计实现" />
+    <MESSAGE value="浏览记录的实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="浏览记录的实现" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/meiduo$views__1_.coverage" NAME="views (1) Coverage Results" MODIFIED="1602382794383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/oauth" />
@@ -857,16 +886,6 @@
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="452" column="29" selection-start-line="452" selection-start-column="29" selection-end-line="452" selection-end-column="29" />
-          <folding>
-            <element signature="e#1#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1013,13 +1032,6 @@
     <entry file="file://$PROJECT_DIR$/templates/detail.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/meiduo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="253" lean-forward="true" selection-start-line="253" selection-end-line="253" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.6/site-packages/django/template/loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1253" />
@@ -1092,9 +1104,27 @@
     <entry file="file://$PROJECT_DIR$/apps/goods/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="135" column="4" selection-start-line="135" selection-start-column="4" selection-end-line="135" selection-end-column="4" />
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meiduo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="485" column="16" selection-start-line="485" selection-start-column="16" selection-end-line="485" selection-end-column="16" />
+          <folding>
+            <element signature="e#1#35#0" expanded="true" />
+            <element signature="e#14520#15034#0" />
           </folding>
         </state>
       </provider>
