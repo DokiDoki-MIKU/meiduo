@@ -487,4 +487,4 @@ class UserHistoryView(LoginRequiredMixin,View):
                 'price': sku.price
             })
 
-        return JsonResponse({'code': 0, 'errmsg': 'OK', 'skus': history_list})
+        return JsonResponse({'code': 0, 'errmsg': 'OK', 'sku': history_list})
