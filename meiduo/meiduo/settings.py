@@ -39,15 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.users',
     'apps.verifications',
-    'corsheaders',
     'apps.oauth',
     'apps.areas',
     'apps.goods',
     'apps.contents',
-    'haystack',
-    'django_crontab',
     'apps.carts',
     'apps.orders',
+    # CORS
+    'corsheaders',
+    # haystack
+    'haystack',
+    'django_crontab',
 
 
 ]
