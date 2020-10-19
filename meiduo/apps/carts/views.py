@@ -169,3 +169,5 @@ class CartView(View):
         response=JsonResponse({'code':0,'errmsg':'ok'})
         response.set_cookie('carts',new_carts.decode(),max_age=3600*24*14)
         return response
+
+

@@ -2,12 +2,8 @@
 from django.middleware import http
 from django.shortcuts import render
 
-# Create your views here
 from django.views import View
-from django_redis import get_redis_connection
-
 from apps.goods.models import SKU
-from apps.oauth.views import token
 from apps.users.models import User, Address
 from django.http import JsonResponse
 import re
@@ -195,6 +191,9 @@ class LoginView(View):
         response = JsonResponse({'code':0,'errmsg':'ok'})
         # 为了首页显示用户信息
         response.set_cookie('username',username)
+
+        from apps.carts.untils import merge_cookies_to_redis
+        response = merge_cookies_to_redis(request,response)
 
         return response
 
